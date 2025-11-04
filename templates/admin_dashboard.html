@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h1>Admin Overview</h1>
+    <p>Manage all users and listings on the platform.</p>
+</div>
+
+<section>
+    <h2>Registered Restaurants</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in restaurants %}
+            <tr>
+                <td>{{ r['name'] }}</td>
+                <td>{{ r['email'] }}</td>
+                <td>{{ r['address'] or 'N/A' }}</td>
+                <td>{{ r['phone_number'] or 'N/A' }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4" style="text-align: center;">No restaurants have registered yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+<section style="margin-top: 50px;">
+    <h2>Registered NGOs & Old Age Homes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ngo in ngos %}
+            <tr>
+                <td>{{ ngo['name'] }}</td>
+                <td>{{ ngo['email'] }}</td>
+                <td>{{ ngo['address'] or 'N/A' }}</td>
+                <td>{{ ngo['phone_number'] or 'N/A' }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4" style="text-align: center;">No NGOs or old age homes have registered yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+<section style="margin-top: 50px;">
+    <h2>All Food Listings</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Restaurant</th>
+                <th>Food Item</th>
+                <th>Quantity</th>
+                <th>Status</th>
+                <th>Listed On</th>
+                <th>Fresh Until</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in listings %}
+            <tr>
+                <td>{{ item['restaurant_name'] }}</td>
+                <td>{{ item['food_item'] }}</td>
+                <td>{{ item['quantity'] }}</td>
+                <td>{{ item['current_status'] }}</td>
+                <td>{{ item['timestamp'].strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                <td>{{ item['fresh_until'].strftime('%Y-%m-%d %H:%M:%S') if item['fresh_until'] else 'N/A' }}</td>   
+            </tr>
+            {% else %}
+             <tr>
+                <td colspan="6" style="text-align: center;">No food has been listed yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

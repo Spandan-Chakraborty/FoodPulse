@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Pulse</title>
+    <!-- Link to the external CSS file using Flask's url_for -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="background-overlay"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Food Pulse</div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section" id="home">
+        <h1>Food Pulse</h1>
+        <p>Crafting a seamless bridge between restaurants, NGOs, and old-age homes to deliver surplus food where it's needed most — for a world with zero food wastage.</p>
+        <!-- Corrected link to the login route -->
+        <a class="login-btn" href="{{ url_for('login_page') }}">Login</a>
+    </div>
+
+    <div class="why-choose-section" id="about">
+        <h2>Why Choose Food Pulse?</h2>
+        <p class="subtitle">At Food Pulse, we believe in the power of sharing. Every surplus meal can become a smile, every small act can create a big change. Through our trusted platform, we make food redistribution simple, reliable, and impactful — connecting those who have with those who need.</p>
+    </div>
+
+    <div class="features-section">
+        <div class="features-grid">
+             <div class="feature-card">
+                <div class="feature-design">
+                    <div class="design-circle"></div>
+                    <div class="design-line"></div>
+                </div>
+                <div class="feature-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="3"/>
+                        <path d="M 30 50 L 45 65 L 70 35" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 50 20 Q 60 30 50 40 Q 40 30 50 20" fill="currentColor"/>
+                        <circle cx="50" cy="70" r="8" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h3>Zero Wastage</h3>
+                <p>We ensure no edible food goes to waste — every meal counts and every act of kindness matters.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-design">
+                    <div class="design-circle"></div>
+                    <div class="design-line"></div>
+                </div>
+                <div class="feature-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="35" cy="40" r="18" fill="none" stroke="currentColor" stroke-width="3"/>
+                        <circle cx="65" cy="40" r="18" fill="none" stroke="currentColor" stroke-width="3"/>
+                        <path d="M 35 55 L 35 75 M 65 55 L 65 75" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M 25 75 L 75 75" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                        <ellipse cx="35" cy="38" rx="5" ry="7" fill="currentColor"/>
+                        <ellipse cx="65" cy="38" rx="5" ry="7" fill="currentColor"/>
+                        <path d="M 35 58 Q 50 70 65 58" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Connecting Communities</h3>
+                <p>Bringing restaurants, NGOs, and old-age homes together for a common cause of compassion.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-design">
+                    <div class="design-circle"></div>
+                    <div class="design-line"></div>
+                </div>
+                <div class="feature-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="20" y="35" width="50" height="35" rx="3" fill="none" stroke="currentColor" stroke-width="3"/>
+                        <rect x="25" y="40" width="40" height="10" fill="currentColor" opacity="0.3"/>
+                        <rect x="25" y="52" width="40" height="8" fill="currentColor" opacity="0.3"/>
+                        <circle cx="35" cy="80" r="8" fill="none" stroke="currentColor" stroke-width="3"/>
+                        <circle cx="55" cy="80" r="8" fill="none" stroke="currentColor" stroke-width="3"/>
+                        <path d="M 20 35 L 15 25 L 25 25" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M 70 45 L 85 45 M 80 40 L 85 45 L 80 50" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Efficient Transfers</h3>
+                <p>Streamlined logistics ensure surplus food is moved safely, quickly, and efficiently to where it's needed most.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-design">
+                    <div class="design-circle"></div>
+                    <div class="design-line"></div>
+                </div>
+                <div class="feature-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="25" y="30" width="50" height="45" rx="3" fill="none" stroke="currentColor" stroke-width="3"/>
+                        <line x1="25" y1="45" x2="75" y2="45" stroke="currentColor" stroke-width="3"/>
+                        <rect x="35" y="35" width="8" height="6" fill="currentColor"/>
+                        <rect x="56" y="35" width="8" height="6" fill="currentColor"/>
+                        <circle cx="50" cy="55" r="3" fill="currentColor"/>
+                        <path d="M 35 55 L 45 65 M 55 55 L 65 65" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M 30 20 L 50 10 L 70 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Real-Time Tracking</h3>
+                <p>Track donations, transfers, and impact in real-time through our transparent and smart dashboard.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-design">
+                    <div class="design-circle"></div>
+                    <div class="design-line"></div>
+                </div>
+                <div class="feature-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 50 25 Q 45 30 45 35 L 45 50 Q 45 55 50 55 Q 55 55 55 50 L 55 35 Q 55 30 50 25" fill="currentColor"/>
+                        <ellipse cx="50" cy="60" rx="8" ry="5" fill="currentColor"/>
+                        <path d="M 30 55 Q 28 58 30 62 L 35 72 Q 37 75 40 73 Q 43 71 41 68 L 36 58 Q 34 55 30 55" fill="currentColor"/>
+                        <path d="M 70 55 Q 72 58 70 62 L 65 72 Q 63 75 60 73 Q 57 71 59 68 L 64 58 Q 66 55 70 55" fill="currentColor"/>
+                        <circle cx="50" cy="78" r="15" fill="none" stroke="currentColor" stroke-width="3"/>
+                        <path d="M 42 78 L 48 84 L 58 74" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Sustainable Future</h3>
+                <p>We promote an eco-conscious lifestyle — reducing waste and building a hunger-free, sustainable world.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-design">
+                    <div class="design-circle"></div>
+                    <div class="design-line"></div>
+                </div>
+                <div class="feature-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="35" cy="35" r="15" fill="none" stroke="currentColor" stroke-width="3"/>
+                        <path d="M 35 48 L 35 65 M 28 58 L 42 58" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="35" cy="30" r="4" fill="currentColor"/>
+                        <circle cx="65" cy="35" r="15" fill="none" stroke="currentColor" stroke-width="3"/>
+                        <path d="M 65 48 L 65 65 M 58 58 L 72 58" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="65" cy="30" r="4" fill="currentColor"/>
+                        <path d="M 25 70 Q 35 78 50 70 Q 65 78 75 70" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="50" cy="72" r="8" fill="currentColor" opacity="0.3"/>
+                    </svg>
+                </div>
+                <h3>Social Impact</h3>
+                <p>Empowering local communities, feeding the needy, and fostering collaboration through compassion.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="how-it-works">
+        <h2>How Food Pulse Works</h2>
+        
+        <div class="workflow-container">
+            <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div class="workflow-icon">🍽️</div>
+                <h3>Restaurants</h3>
+                <p>Restaurants and food establishments register surplus food on our platform, making it available for donation.</p>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="workflow-step">
+                <div class="step-number">2</div>
+                <div class="workflow-icon">⚙️</div>
+                <h3>Admin</h3>
+                <p>Our admin team verifies, coordinates, and manages the food redistribution process efficiently and transparently.</p>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div class="workflow-icon">🏠</div>
+                <h3>NGOs & Consumers</h3>
+                <p>NGOs, old-age homes, and communities receive fresh food, ensuring no one goes hungry and nothing goes to waste.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="social-section" id="contact">
+        <div class="social-icons">
+            <a href="#" class="social-link" aria-label="Twitter">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+        </div>
+        <p class="copyright">All rights reserved © 2025</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <!-- ============================================= -->
+    <!-- NEW: CHATBOT INTEGRATION CODE - START -->
+    <!-- ============================================= -->
+
+    <!-- Chatbot HTML Structure -->
+    <div class="chat-widget">
+        <div class="chat-bubble">💬</div>
+        <div class="chat-window">
+            <div class="chat-header">
+                <h4>PulseBot Assistant</h4>
+                <button class="chat-close">&times;</button>
+            </div>
+            <div class="chat-log" id="chat-log">
+                <!-- Chat messages will appear here -->
+                <div class="chat-message bot">Hello! I'm PulseBot. How can I help you understand Food Pulse today?</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Ask a question...">
+                <button id="chat-send-btn">➤</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot Styling & Logic -->
+    <style>
+        .chat-widget { position: fixed; bottom: 25px; right: 25px; z-index: 1001; }
+        .chat-bubble { width: 60px; height: 60px; background-color: #ffffff; color: #1a4d2e; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.2s ease; }
+        .chat-bubble:hover { transform: scale(1.1); }
+        .chat-window { position: absolute; bottom: 80px; right: 0; width: 350px; height: 500px; background: rgba(15, 58, 31, 0.9); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 15px; backdrop-filter: blur(10px); box-shadow: 0 10px 40px rgba(0,0,0,0.4); display: flex; flex-direction: column; overflow: hidden; transform: scale(0); transform-origin: bottom right; transition: transform 0.3s ease-in-out; }
+        .chat-widget.open .chat-window { transform: scale(1); }
+        .chat-header { padding: 15px; background: rgba(0,0,0,0.2); color: white; display: flex; justify-content: space-between; align-items: center; }
+        .chat-header h4 { margin: 0; font-weight: 600; }
+        .chat-close { background: none; border: none; color: white; font-size: 24px; cursor: pointer; opacity: 0.7; }
+        .chat-close:hover { opacity: 1; }
+        .chat-log { flex-grow: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+        .chat-message { max-width: 80%; padding: 10px 15px; border-radius: 18px; line-height: 1.5; }
+        .chat-message.user { background-color: white; color: #1a4d2e; align-self: flex-end; border-bottom-right-radius: 5px; }
+        .chat-message.bot { background-color: rgba(255, 255, 255, 0.15); color: white; align-self: flex-start; border-bottom-left-radius: 5px; }
+        .chat-input-area { display: flex; padding: 15px; border-top: 1px solid rgba(255, 255, 255, 0.2); }
+        #chat-input { flex-grow: 1; border: none; background: rgba(0,0,0,0.2); color: white; padding: 10px; border-radius: 20px; }
+        #chat-input:focus { outline: none; }
+        #chat-send-btn { background: white; color: #1a4d2e; border: none; border-radius: 50%; width: 40px; height: 40px; margin-left: 10px; cursor: pointer; font-size: 18px; }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatWidget = document.querySelector('.chat-widget');
+            const chatBubble = document.querySelector('.chat-bubble');
+            const chatCloseBtn = document.querySelector('.chat-close');
+            const chatLog = document.getElementById('chat-log');
+            const chatInput = document.getElementById('chat-input');
+            const chatSendBtn = document.getElementById('chat-send-btn');
+
+            // Toggle chat window visibility
+            chatBubble.addEventListener('click', () => chatWidget.classList.toggle('open'));
+            chatCloseBtn.addEventListener('click', () => chatWidget.classList.remove('open'));
+
+            // Function to add a message to the chat log
+            function addMessage(sender, text) {
+                const messageElem = document.createElement('div');
+                messageElem.classList.add('chat-message', sender);
+                messageElem.textContent = text;
+                chatLog.appendChild(messageElem);
+                chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll
+            }
+
+            // Function to handle sending a message
+            async function sendMessage() {
+                const messageText = chatInput.value.trim();
+                if (messageText === '') return;
+
+                // Display user's message
+                addMessage('user', messageText);
+                chatInput.value = '';
+
+                // Show a "typing" indicator
+                const typingIndicator = document.createElement('div');
+                typingIndicator.classList.add('chat-message', 'bot');
+                typingIndicator.textContent = '● ● ●';
+                chatLog.appendChild(typingIndicator);
+                chatLog.scrollTop = chatLog.scrollHeight;
+
+                try {
+                    // Send message to the Flask backend
+                    const response = await fetch('/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ message: messageText }),
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+
+                    const data = await response.json();
+                    
+                    // Remove "typing" indicator and display bot's reply
+                    chatLog.removeChild(typingIndicator);
+                    addMessage('bot', data.reply);
+
+                } catch (error) {
+                    // Handle errors
+                    console.error('Chat error:', error);
+                    chatLog.removeChild(typingIndicator);
+                    addMessage('bot', 'Sorry, I am having trouble connecting. Please try again.');
+                }
+            }
+
+            // Event listeners for sending a message
+            chatSendBtn.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+    <!-- ============================================= -->
+    <!-- NEW: CHATBOT INTEGRATION CODE - END -->
+    <!-- ============================================= -->
+</body>
+</html>

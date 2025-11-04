@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block title %}Restaurant Dashboard{% endblock %}
+
+{% block content %}
+
+<div id="loading-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+        <div class="spinner"></div>
+        <p>Analyzing food freshness with AI...</p>
+    </div>
+</div>
+
+<style>
+    /* NEW: CSS for the Modal */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        backdrop-filter: blur(5px);
+    }
+    .modal-content {
+        text-align: center;
+        color: white;
+    }
+    .modal-content p {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    /* Simple CSS Spinner */
+    .spinner {
+        width: 60px;
+        height: 60px;
+        border: 6px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto;
+    }
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+
+<div class="dashboard-header">
+    <h1>Welcome, {{ session['name'] }}!</h1>
+    <p>Manage your surplus food listings here.</p>
+</div>
+
+<div class="form-section">
+    <h2>Add New Food Listing</h2>
+    <form action="{{ url_for('add_food') }}" method="POST" id="add-food-form">
+        <div class="form-group">
+            <label for="food_item">Food Item Name / Description</label>
+            <input type="text" id="food_item" name="food_item" required>
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantity (e.g., 10 meals, 5 kg)</label>
+            <input type="text" id="quantity" name="quantity" required>
+        </div>
+        <button type="submit" class="submit-btn" style="width: auto; padding: 12px 30px;">Add Listing</button>
+    </form>
+</div>
+
+<h2>Your Listings</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Food Item</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>Listed On</th>
+            <th>Stays Fresh Until</th> </tr>
+    </thead>
+    <tbody>
+        {% for item in listings %}
+        <tr>
+            <td>{{ item['food_item'] }}</td>
+            <td>{{ item['quantity'] }}</td>
+            <td>{{ item['current_status'] }}</td>
+            <td>{{ item['timestamp'].strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            <td>{{ item['fresh_until'].strftime('%Y-%m-%d %H:%M:%S') if item['fresh_until'] else 'N/A' }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5">You have no active listings.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+    document.getElementById('add-food-form').addEventListener('submit', function() {
+        document.getElementById('loading-modal').style.display = 'flex';
+    });
+</script>
+
+{% endblock %}

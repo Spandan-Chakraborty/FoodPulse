@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}Community Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h1>Welcome, {{ session['name'] }}!</h1>
+    <p>Find available surplus food from local restaurants.</p>
+</div>
+
+<h2>Available Food Listings</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Restaurant</th>
+            <th>Address</th>
+            <th>Food Item</th>
+            <th>Quantity</th>
+            <th>Fresh Until</th> <th>Status</th> <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in listings %}
+        <tr>
+            <td>{{ item['restaurant_name'] }}</td>
+            <td>{{ item['restaurant_address'] }}</td>
+            <td>{{ item['food_item'] }}</td>
+            <td>{{ item['quantity'] }}</td>
+            <td>{{ item['fresh_until'].strftime('%Y-%m-%d %H:%M:%S') if item['fresh_until'] else 'N/A' }}</td>
+            <td>{{ item['current_status'] }}</td>
+            <td>
+                {% if item['current_status'] == 'Expired' %}
+                    <button type="button" class="btn-secondary" disabled style="opacity: 0.5; cursor: not-allowed;">Expired</button>
+                {% else %}
+                    <form action="{{ url_for('claim_food', listing_id=item['id']) }}" method="POST">
+                        <button type="submit" class="btn-secondary">Claim</button>
+                    </form>
+                {% endif %}
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="7">No food listings are available at the moment.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
